@@ -1,0 +1,143 @@
+:root {
+  color-scheme: light dark;
+  --background: #f6f7f2;
+  --surface: rgba(255, 255, 255, 0.84);
+  --text: #182012;
+  --muted: #5d6657;
+  --border: rgba(24, 32, 18, 0.14);
+  --accent: #6eaa0c;
+  --accent-strong: #477600;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #10130e;
+    --surface: rgba(28, 33, 24, 0.9);
+    --text: #eff4e9;
+    --muted: #b3bcaa;
+    --border: rgba(239, 244, 233, 0.14);
+    --accent: #a3f01f;
+    --accent-strong: #c3ff60;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 34rem),
+    var(--background);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  width: min(880px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+nav a,
+.button {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface);
+}
+
+nav a[aria-current="page"],
+.button.primary {
+  color: #11170d;
+  background: var(--accent);
+  border-color: transparent;
+  font-weight: 650;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2.2rem, 6vw, 4.25rem);
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+}
+
+h2 {
+  margin-top: 0;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin-top: 2rem;
+}
+
+.lede,
+.muted {
+  color: var(--muted);
+}
+
+.lede {
+  max-width: 62ch;
+  font-size: 1.15rem;
+}
+
+.card {
+  margin: 20px 0;
+  padding: clamp(22px, 5vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.language {
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.language:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+a {
+  color: var(--accent-strong);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+footer {
+  margin-top: 36px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 560px) {
+  main {
+    padding-top: 24px;
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+}
